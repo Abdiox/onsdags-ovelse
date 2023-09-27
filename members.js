@@ -1,6 +1,5 @@
 export { Member, fetchMembers };
 
-// Member class constructor
 class Member {
   constructor(id, firstName, lastName, email, dateOfBirth, gender, hasPayed, image, isActiveMember, isCompetitive) {
     this._id = id; // Skrivebeskyttet id
@@ -43,9 +42,12 @@ class Member {
   get isSenior() {
     return this.age >= 18;
   }
+
+  get id() {
+    return this._id;
+  }
 }
 
-// Function to fetch members and convert them to Member objects
 async function fetchMembers() {
   const response = await fetch("data/members.json");
   const data = await response.json();

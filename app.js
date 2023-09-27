@@ -39,9 +39,9 @@ function showMembers(memberObject) {
 }
 
 // Find a member by ID
-function findMemberById(id, members) {
-  return members.find((member) => member.id === id);
-}
+// function findMemberById(id, members) {
+//   return members.find((member) => member.id === id);
+// }
 
 //------------------- Get Results  ----------------------//
 
@@ -59,39 +59,39 @@ function showResults(resultObject) {
   const html = /*html*/ `
 
 
-    <thead>
+    <tbody>
           <tr>
-            <th>${resultObject.date}</th>
+            <td>${resultObject.date}</td>
             <th>${resultObject.memberId}</th>
             <th>${resultObject.discipline}</th>
             <th>${resultObject.resultType}</th>
             <th>${resultObject.time}</th>
           </tr>
-        </thead>
+        </tbody>
   `;
   document.querySelector("#results").insertAdjacentHTML("beforeend", html);
 }
 
 // Find a result by ID
-function findResultById(id, results) {
-  return results.find((result) => result.id === id);
-}
+// function findResultById(id, results) {
+//   return results.find((result) => result.id === id);
+// }
 
 //------------------- Get Ids  ----------------------//
 
 // Example usage
-async function GetIds() {
-  await displayMembers();
-  await displayResults();
+// async function GetIds() {
+//   await displayMembers();
+//   await displayResults();
 
-  const memberIdToFind = 1; // Replace with the ID you want to search for
-  const members = await fetchMembers();
-  const member = findMemberById(memberIdToFind, members);
-  if (member) {
-    console.log(`Found member with ID ${memberIdToFind}: ${member.fullName}`);
-  } else {
-    console.log(`Member with ID ${memberIdToFind} not found.`);
-  }
-}
+//   const memberIdToFind = 1; // Replace with the ID you want to search for
+//   const members = await fetchMembers();
+//   const member = findMemberById(memberIdToFind, members);
+//   if (member) {
+//     console.log(`Found member with ID ${memberIdToFind}: ${member.fullName}`);
+//   } else {
+//     console.log(`Member with ID ${memberIdToFind} not found.`);
+//   }
+// }
 
-GetIds();
+// GetIds();
