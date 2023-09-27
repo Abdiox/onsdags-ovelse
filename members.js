@@ -1,56 +1,7 @@
-// export { getMembers };
-
-// async function getMembers() {
-//   const response = await fetch(`data/members.json`);
-//   const data = await response.json();
-//   console.log(data);
-//   return data;
-// }
-
-// "use strict";
-
-// const fs = require(`fs`);
-
-// function constructMember(memberData) {
-//   const member = {
-//     firstName: memberData.firstName,
-//     lastName: memberData.lastName,
-//     email: memberData.email,
-//     dateOfBirth: memberData.dateOfBirth,
-//     gender: memberData.gender,
-//     hasPayed: memberData.hasPayed,
-//     image: memberData.image,
-//   };
-//   return member;
-// }
-
-// const filePath = "./data/members.json";
-
-// fs.readFile(filePath, "utf8", (err, data) => {
-//   if (err) {
-//     console.error("Error reading the file:", err);
-//     return;
-//   }
-
-//   try {
-//     const jsonData = JSON.parse(data);
-
-//     for (const key in jsonData) {
-//       console.log(constructMember(jsonData[key]));
-//     }
-//   } catch (parseError) {
-//     console.error("Error parsing JSON:", parseError);
-//   }
-// });
-
-// members.js
-
-// members.js
-
-// members.js
+export { Member, fetchMembers };
 
 // Member class constructor
-export class Member {
+class Member {
   constructor(id, firstName, lastName, email, dateOfBirth, gender, hasPayed, image, isActiveMember, isCompetitive) {
     this._id = id; // Skrivebeskyttet id
     this.firstName = firstName;
@@ -60,7 +11,7 @@ export class Member {
     this.gender = gender;
     this.hasPayed = hasPayed;
     this.image = image;
-    this.isActiveMember = isActiveMember; // Ny egenskab isActiveMember
+    this.isActiveMember = isActiveMember;
     this.isCompetitive = isCompetitive;
   }
 
@@ -95,7 +46,7 @@ export class Member {
 }
 
 // Function to fetch members and convert them to Member objects
-export async function fetchMembers() {
+async function fetchMembers() {
   const response = await fetch("data/members.json");
   const data = await response.json();
   return data.map(
